@@ -1,6 +1,6 @@
 ---
 title: "CEVE 101: Project 03"
-author: "Your Name (your netid)"
+author: "Samuel Estrada-Pardo (Se50)"
 date: "2024-10-23"
 output: html_document
 kernel: julia-1.11
