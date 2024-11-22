@@ -3,7 +3,7 @@ title: "CEVE 101: Project 03"
 author: "Samuel Estrada-Pardo (Se50)"
 date: "2024-10-23"
 output: html_document
-kernel: julia-1.11
+engine: julia
 code-annotations: hover
 format:
     html: default
@@ -26,7 +26,7 @@ using RainwaterHarvesting         # <2>
 Next, we specify the path to the rainfall data file and read it in.
 
 ```{julia}
-filepath = "data/1.txt" # <1>   
+filepath = "data/17.txt" # <1>   
 rainfall_data = RainfallData(filepath) # <2>
 ```
 
