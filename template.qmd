@@ -50,9 +50,16 @@ plot(rainfall_data) # <1>
 
 ### Discussion
 
-*Insert discussion here*
+### Discussion
+
+Based off the graph/plot, I believe that the years kept after data cleaning are 2010 and 2011. Additionally, I believe that the available data is sufficient for meaningful risk assesments because there's just a little over 50 years of data on this graph. The only year without any data is 2011 (inference based off the graph, 2011 is one of the only years on this graph either very low or with no peak). However, based on Science Direct, one year of major drought in Ceará, Brazil, is 2011. Therefore, 2011 doesn't have any data on the graph/plot because there was a drought. 
+
+*Citation* "At the extremes: Assessing interrelations among the impacts of and responses to extreme hydroclimatic events in Ceará, Northeast Brazil." Science Direct, 2024.
 
 ## Understanding the Theoretical Model
+
+*Assumptions made through these these theoretical models are Inflow (Q_t) and Consumption rate/time. Since the situations/scenarios mentioned in this project in correlation with these numbers/equations are idealized. In terms of Consumption rate/time, this number only accounts for an ideal situation which in the real-world the chances of having rainy season only the first 150 days are very slim because it can either last longer, be shorter, or be discontinuous and not follow a certain rate/pattern. IN addition, household usage is a similar situation in the sense that different regions/continents result in different household usage because not every household in South America will have the same usage compared to households in Europe (different conditions). To improve precision and expand our range, we should change the C_t number into an equation that fits factors such as (locations, evaporation, envioronment conditions, average rainfall, temperature, etc..) This will help us reach an improved precision when calculating Inflow (Q_t)
+
 
 Let's explore the model that simulates the rainwater harvesting system.
 
@@ -74,13 +81,15 @@ $$
 Inflow is calculated as
 
 $$
-Q_t = \eta \times A \times \max(P_t - F, 0).
+Q_t = \eta \times A \times \max(P_t - F, 0)\times S.
 $$
+
 
 - $\eta$: the runoff coefficient, which accounts for losses due to evaporation, spilling, etc.
 - $A$: the area of the roof (we will use square meters)
 - $P_t$: the precipitation at time $t$ (we will use millimeters per day)
 - $F$: the first flush volume (we will use millimeters). The first flush volume is often discarded, so that each time it rains the first bit of water (which is usually dirty) is not used (see [here](https://rainwaterharvesting.tamu.edu/pre-storage-treatment/) for more details).
+My adjustment was the addition of coefficient 'S' onto the equation. I believe that in order to reach an improved calculation we must consider 'S' "Storage Capacity", which can vary depending on location which is similar to the different household situation. Region's capacity will vary depending on multiple factors.
 
 ### Consumption
 
@@ -110,9 +119,9 @@ You will have the opportunity to change these values later.
 #| output: false
 param = ModelParameters(          # <1>
     runoff_coefficient=0.85,      # <2>
-    roof_area_m2=45.0,            # <3>
+    roof_area_m2=57.0,            # <3>
     first_flush_mm=2.0,           # <4>
-    tank_capacity_L=16000.0       # <5>
+    tank_capacity_L=17000.0       # <5>
 )
 ```
 
